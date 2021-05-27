@@ -3,27 +3,27 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/vcs-ref: f7580aa1eb6f7176705176e201ecff4de93edafb
-    app.openshift.io/vcs-uri: https://github.com/upslopeio/express-sample-app
+    app.openshift.io/vcs-uri: https://github.com/yliu138/express-sample-app
   labels:
-    app: andreas-kavountzis-live-pfs
-    app.kubernetes.io/instance: andreas-kavountzis-live-pfs
-    app.kubernetes.io/name: andreas-kavountzis-live-pfs
+    app: leo-liu-pipeline-from-scratch
+    app.kubernetes.io/instance: leo-liu-pipeline-from-scratch
+    app.kubernetes.io/name: leo-liu-pipeline-from-scratch
     app.openshift.io/runtime: js
-  name: andreas-kavountzis-live-pfs
+  name: leo-liu-pipeline-from-scratch
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app.kubernetes.io/instance: andreas-kavountzis-live-pfs
-      app.kubernetes.io/name: andreas-kavountzis-live-pfs
+      app.kubernetes.io/instance: leo-liu-pipeline-from-scratch
+      app.kubernetes.io/name: leo-liu-pipeline-from-scratch
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app.kubernetes.io/instance: andreas-kavountzis-live-pfs
-        app.kubernetes.io/name: andreas-kavountzis-live-pfs
+        app.kubernetes.io/instance: leo-liu-pipeline-from-scratch
+        app.kubernetes.io/name: leo-liu-pipeline-from-scratch
     spec:
       containers:
         - env:
@@ -31,7 +31,7 @@ spec:
             - name: PROTOCOLS
             - name: LOG_LEVEL
               value: debug
-          image: quay.io/andreask/express-sample-app
+          image: quay.io/leoliu2011/express-sample-app
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 3
@@ -42,7 +42,7 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 1
-          name: andreas-kavountzis-live-pfs
+          name: leo-liu-pipeline-from-scratch
           ports:
             - containerPort: 3000
               name: http
